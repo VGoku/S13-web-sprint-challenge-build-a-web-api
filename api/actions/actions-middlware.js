@@ -17,7 +17,7 @@ function checkIdActions(req, res, next) {
     if (!action) {
       return res.status(404).json({message: `No actions found with id ${id}` });
     }
-    req.actions = action
+    req.action = action
     next()
   })
   .catch(next)
