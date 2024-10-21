@@ -12,3 +12,18 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Pull your server into this file and start it!
 */
+const express = require("express");
+const projectsRouter = require("./api/projects/projects-router");
+const actionsRouter = require("./api/actions/actions-router");
+
+const app = express();
+app.use(express.json());
+
+const PORT = process.env.PORT || 9000;
+
+app.use("/api/projects", projectsRouter);
+app.use("/api/actions", actionsRouter);
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+})
